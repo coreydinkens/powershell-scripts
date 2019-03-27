@@ -1,14 +1,4 @@
-<# Alternate way of matching using ConvertFrom-String -TemplateContent $template
-$template = @'
-DRIVER              VOLUME NAME
-{Driver*:vsphere}             {Volume:92bf28ce-4d91-11e9-ab05-005056ac652f}
-{Driver*:vsphere}             {Volume:awnacademy-sqlconfig}
-'@
-
-$getvolumes = docker --tlsverify volume ls | ConvertFrom-String -TemplateContent $template
-
-#>
-
+<# This script will list the volumes on a vSphere VCH and allow you to select which volumes you would like to delete. #>
 <# 
 *This script assumes the following is true of the environment from which this script will execute:*
 
